@@ -1,10 +1,10 @@
 HC=ghc --make $@
 
-Sorter: Sorter.hs
+Prioritizer: Prioritizer.hs
 	$(HC)
 
 .PHONY: clean
 clean:
 	rm *.o || true
 	rm *.hi || true
-	rm Sorter || true
+	rm Prioritizer || true
