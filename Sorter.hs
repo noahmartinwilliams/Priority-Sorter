@@ -24,7 +24,11 @@ sort (first : rest) = let (left, right) = filter2 (\x -> compareGE x first) rest
 main :: IO()
 main = do
 	args <- getArgs
-	let (input : output : _) = args in do
-		i <- readFile input
-		let lines = (endBy "\n" i) in
-			writeFile output (foldr (\x -> \y -> x ++ "\n" ++ y) "" (sort lines))
+	if (length args) < 2 
+	then
+		putStrLn "Usage: Sorter input-file output-file"
+	else do
+		let (input : output : _) = args in do
+			i <- readFile input
+			let lines = (endBy "\n" i) in
+				writeFile output (foldr (\x -> \y -> x ++ "\n" ++ y) "" (sort lines))
